@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.spring.board.LikeUserMapper">
+	<!-- 게시물 조회/좋아요/싫어요 userid저장 -->
+	<insert id="insert">
+		insert into likeuser (gubun,num,userid,likegubun)
+		values (#{gubun},#{num}, #{userid},#{likegubun})
+	</insert>
+	
+	<!-- 게시물 조회/좋아요/싫어요 조회한 유저 --> 
+	<select id="select"  resultType="LikeUserDTO">
+		select *
+		from likeuser
+		where gubun = #{gubun}
+		and num = #{num}
+		and userid=#{userid}
+		and likegubun=#{likegubun}
+	</select>
+	
+	<delete id="delete">
+		delete from likeuser
+		where gubun = #{gubun}
+		and num = #{num}
+		and userid=#{userid}
+		and likegubun=#{likegubun}
+	</delete>
+	
+	
+	
+</mapper>

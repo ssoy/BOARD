@@ -1,0 +1,36 @@
+src/main/java/org/spring/board/advice/AopAdvice.java:19:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:19:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:20:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:20:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:21:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:21:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:22:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:22:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:30:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:30:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:31:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:31:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:32:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:32:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:33:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/AopAdvice.java:33:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/CommonExceptionAdvice.java:12:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/CommonExceptionAdvice.java:12:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/CommonExceptionAdvice.java:13:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/advice/CommonExceptionAdvice.java:13:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/main/java/org/spring/board/controller/BoardController.java:31:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/controller/BoardController.java:31:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/controller/LoginController.java:19:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/controller/LoginController.java:19:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/controller/MemberController.java:23:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/controller/MemberController.java:23:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/controller/ReplyController.java:25:	UnusedPrivateField:	UnusedPrivateField: »ç¿ëµÇÁö ¾Ê´Â Private field 'logger' °¡ ¼±¾ðµÇ¾úÀ½
+src/main/java/org/spring/board/controller/ReplyController.java:25:	UnusedPrivateField:	UnusedPrivateField: »ç¿ëµÇÁö ¾Ê´Â Private field 'logger' °¡ ¼±¾ðµÇ¾úÀ½
+src/main/java/org/spring/board/controller/ReplyController.java:25:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/controller/ReplyController.java:25:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/service/FileServiceImpl.java:20:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/service/FileServiceImpl.java:20:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/service/MemberServiceImpl.java:16:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/main/java/org/spring/board/service/MemberServiceImpl.java:16:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
+src/test/java/org/spring/board/TestDAO.java:35:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/test/java/org/spring/board/TestDAO.java:35:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
