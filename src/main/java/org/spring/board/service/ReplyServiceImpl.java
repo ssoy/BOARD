@@ -53,4 +53,10 @@ public class ReplyServiceImpl implements ReplyService{
 		
 	}
 
+	@Override
+	public void deleteBoard(int bnum) throws Exception {
+		rdao.deleteBoard(bnum);
+		
+	}
+
 }

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class LoginController {
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 	
 	@Autowired
 	private LoginService lservice;
@@ -26,12 +26,13 @@ public class LoginController {
 	public String login(String userid, String passwd, 
 			HttpSession session,
 			RedirectAttributes rattr, Model model) {
-		logger.info(userid+":"+passwd);
+		LOGGER.info(userid+":"+passwd);
 		Map<String,Object> resultMap = lservice.loginCheck(userid, passwd);
 		//로그인실패시(-1) login으로 이동, 성공시(0) main으로 이동
 		if ((int)resultMap.get("result")==0){
 			//세션에 userid저장
 			session.setAttribute("userid", userid);
+			session.setAttribute("thumbnail", resultMap.get("thumbnail")); //썬네일이미지파일명
 			session.setMaxInactiveInterval(60*60*100);
 		}
 		

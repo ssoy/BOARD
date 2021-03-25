@@ -38,7 +38,7 @@ public class ReplyDAOImpl implements ReplyDAO{
 
 	@Override
 	public void delete(int rnum) throws Exception {
-		session.update("org.spring.board.ReplyMapper.delete",rnum);
+		session.delete("org.spring.board.ReplyMapper.delete",rnum);
 	}
 
 	@Override
@@ -49,6 +49,11 @@ public class ReplyDAOImpl implements ReplyDAO{
 	@Override
 	public int selectReplyCnt(ReplyDTO rdto) throws Exception {
 		return session.selectOne("org.spring.board.ReplyMapper.selectReplyCnt",rdto);
+	}
+
+	@Override
+	public void deleteBoard(int bnum) throws Exception {
+		session.delete("org.spring.board.ReplyMapper.deleteBoard",bnum);
 	}
 
 }

@@ -5,17 +5,17 @@
 <mapper namespace="org.spring.board.BoardMapper">
 	<sql id="find">
 		<if test="findKey=='userid'">
-			where userid like '%' || #{findValue} || '%'
+			where userid like concat('%',#{findValue},'%')
 		</if>
 		<if test="findKey=='subject'">
-			where subject like '%' || #{findValue} || '%'
+			where subject like concat('%',#{findValue},'%')
 		</if>
 		<if test="findKey=='content'">
-			where content like '%' || #{findValue} || '%'
+			where content like concat('%',#{findValue},'%')
 		</if>
 		<if test="findKey=='subcon'">
-			where subject like '%' || #{findValue} || '%'
-			   or content like '%' || #{findValue} || '%'
+			where subject like concat('%',#{findValue},'%')
+			   or content like concat('%',#{findValue},'%')
 		</if>
 	</sql>
 	
@@ -25,23 +25,18 @@
 	</select>
 
 	<select id="selectList" resultType="BoardDTO">
-		select * from (
-		  select rownum rown, b.* 
-		  from 
-		   (select * from board
-		     <include refid="find"/>
-		     order by bnum desc ) b) b
-		where rown between #{startNo} and #{endNo}
+		select * from board
+		<include refid="find"/>
+		order by bnum desc
+		limit #{startNo}, #{perPage}
 	</select>
 
 	<select id="selectOne" resultType="BoardDTO">
 		select * from board 
 		where bnum = #{bnum}
 	</select>
-	<insert id="insert" parameterType="BoardDTO">
-		<selectKey keyProperty="bnum" resultType="int" order="BEFORE">
-			select bseq.nextval from dual
-		</selectKey>
+	<!-- useGeneratedKeys="true" keyProperty="bnum" : 키생성후 dto에 세팅 -->
+	<insert id="insert" parameterType="BoardDTO" useGeneratedKeys="true" keyProperty="bnum">
 		insert into board (bnum,userid,subject,content,ip) 
 		values(#{bnum},#{userid},#{subject},#{content},#{ip})
 	</insert>
@@ -49,7 +44,7 @@
 		update board
 		set subject =#{subject},
 		    content = #{content},
-		    modifydate = sysdate
+		    modifydate = now()
 		where bnum = #{bnum}
 	</update>
 	<delete id="delete">

@@ -49,17 +49,17 @@ public class BoardController {
 		return "redirect:/board/";
 	}
 	
+	//조회폼으로
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String list(@ModelAttribute("pdto") PageDTO pdto, Model model) {
+	public String list(@ModelAttribute("pdto") PageDTO pdto) {
 		//@ModelAttribute("pdto") =>@SessionAttributes("pdto")에 저장
-		model.addAttribute("pdto",pdto);
 		return "board/list";
 	}
 	
 	//조회버튼 또는 페이지를 눌렀을때
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public Map<String, Object> list(@ModelAttribute("pdto") PageDTO pdto) throws Exception {
+	public Map<String, Object> listdata(@ModelAttribute("pdto") PageDTO pdto) throws Exception {
 		return bservice.selectList(pdto);
 	}
 	
@@ -142,7 +142,9 @@ public class BoardController {
 		
 		return "redirect:/board/";
 	}
-
+	
+	
+	
 	
 	
 

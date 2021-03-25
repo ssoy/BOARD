@@ -1,9 +1,6 @@
 package org.spring.board;
 
-import static org.junit.Assert.fail;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
@@ -22,12 +19,14 @@ public class TestDAO {
 	@Autowired
 	private BoardDAO bdao;
 	
-	/*
-	 * @Test public void testSelectList() throws Exception { Map<String,String>
-	 * findMap = new HashMap<>(); findMap.put("findKey", "subcon");
-	 * findMap.put("findValue", "파일"); List<BoardDTO> list =
-	 * bdao.selectList(findMap); System.out.println(list); }
-	 */
+	@Test
+	public void testSelectList() throws Exception {
+		Map<String,String> findMap = new HashMap<>();
+		findMap.put("findKey", "subcon");
+		findMap.put("findValue", "파일");
+//		List<BoardDTO> list = bdao.selectList(findMap);
+//		System.out.println(list);
+	}
 
 	@Test
 	public void testSelectOne() throws Exception {

@@ -8,6 +8,9 @@ public interface ReplyDAO {
 	public void insert(ReplyDTO rdto) throws Exception;
 	public void update(ReplyDTO rdto) throws Exception;
 	public void delete(int rnum) throws Exception;
+	//게시물에 해당하는 댓글 삭제
+	public void deleteBoard(int bnum) throws Exception;
+	
 	public ReplyDTO selectOne(int rnum) throws Exception;
 	
 	//기존등록된 글순서 +1

@@ -3,16 +3,18 @@ package org.spring.board.dto;
 public class BoardFileDTO {
 	private int fnum;
 	private int bnum;
-	private String filename;
+	private String filename;  //원본파일이름
+	private String thumbnail; //썸네일이름
 	private String regdate;
 	public BoardFileDTO() {
 		super();
 	}
-	public BoardFileDTO(int fnum, int bnum, String filename, String regdate) {
+	public BoardFileDTO(int fnum, int bnum, String filename, String thumbnail, String regdate) {
 		super();
 		this.fnum = fnum;
 		this.bnum = bnum;
 		this.filename = filename;
+		this.thumbnail = thumbnail;
 		this.regdate = regdate;
 	}
 	public int getFnum() {
@@ -33,6 +35,12 @@ public class BoardFileDTO {
 	public void setFilename(String filename) {
 		this.filename = filename;
 	}
+	public String getThumbnail() {
+		return thumbnail;
+	}
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
 	public String getRegdate() {
 		return regdate;
 	}
@@ -41,8 +49,8 @@ public class BoardFileDTO {
 	}
 	@Override
 	public String toString() {
-		return "BoardFileDTO [fnum=" + fnum + ", bnum=" + bnum + ", filename=" + filename + ", regdate=" + regdate
-				+ "]";
+		return "BoardFileDTO [fnum=" + fnum + ", bnum=" + bnum + ", filename=" + filename + ", thumbnail=" + thumbnail
+				+ ", regdate=" + regdate + "]";
 	}
 	
 	

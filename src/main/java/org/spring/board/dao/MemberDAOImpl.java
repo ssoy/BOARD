@@ -26,5 +26,16 @@ public class MemberDAOImpl implements MemberDAO{
 		session.update("org.spring.board.MemberMapper.emailauthUpdate", userid);
 		
 	}
+
+	// 네이버 간편 가입
+	@Override
+	public int insertNaver(String email) {
+		return session.insert("org.spring.board.MemberMapper.insertNaver", email);
+	}
+
+	@Override
+	public MemberDTO selectOneNaver(String email) {
+		return session.selectOne("org.spring.board.MemberMapper.selectOneNaver", email);
+	}
 	
 }

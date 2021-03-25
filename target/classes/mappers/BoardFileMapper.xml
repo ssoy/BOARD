@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.spring.board.BoardFileMapper">
-	<insert id="insert">
-		insert into boardfile (fnum, bnum, filename)
-		values (fseq.nextval, #{bnum}, #{filename}) 
+	<insert id="insert" useGeneratedKeys="true" keyProperty="fnum">
+		insert into boardfile (fnum, bnum, filename,thumbnail)
+		values (#{fnum}, #{bnum}, #{filename}, #{thumbnail}) 
 	</insert>
 
 	<select id="selectList" resultType="BoardFileDTO">

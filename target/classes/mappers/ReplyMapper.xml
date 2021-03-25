@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.spring.board.ReplyMapper">
-	<insert id="insert">
+	<insert id="insert"  useGeneratedKeys="true" keyProperty="rnum">
 		insert into reply(rnum, bnum, userid,content, ip, restep, relevel) 
-		values(rseq.nextval,#{bnum}, #{userid}, #{content},#{ip}, #{restep},#{relevel})
+		values(#{rnum},#{bnum}, #{userid}, #{content},#{ip}, #{restep},#{relevel})
 	</insert>
 	
 	<!-- 기존 글순서 +1 --> 
@@ -25,13 +25,18 @@
 	<update id="update">
 		update reply
 		set content= #{content},
-			modifydate = sysdate
+			modifydate = now()
 		where rnum = #{rnum}
 	</update>
 	
 	<delete id="delete">
 		delete from reply
 		where rnum = #{rnum}
+	</delete>
+	
+	<delete id="deleteBoard">
+		delete from reply
+		where bnum = #{bnum}
 	</delete>
 	
 	<select id="select" resultType="ReplyDTO">

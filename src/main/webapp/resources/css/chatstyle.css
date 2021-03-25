@@ -1,4 +1,4 @@
-.container{max-width:600px; margin:auto;}
+.chatcontainer{max-width:600px; margin:auto;}
 img{ max-width:100%;}
 .inbox_people {
   background: #f8f8f8 none repeat scroll 0 0;
@@ -131,5 +131,7 @@ img{ max-width:100%;}
 .messaging { padding: 10 50 1000px 10;}
 .msg_history {
   height: 450px;
-  /* overflow-y: auto; */
+  overflow-y: auto;
 }
+
+

@@ -71,6 +71,7 @@
 </head>
 <body>	
 <%@include file="../menu.jsp" %>
+<div class="container">
 	<h2>게시물수정</h2>
 	<form id="frmModify" name="frmModify">
 		번호 : <input type="text" name="bnum" id="bnum" value="${resultMap.bdto.bnum}" readonly="readonly"> <br>
@@ -99,6 +100,6 @@
 		<button id="btnList">목록</button> 
 		
 	</form>
-		
+</div>	
 </body>
 </html>

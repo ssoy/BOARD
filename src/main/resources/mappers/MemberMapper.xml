@@ -3,15 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.spring.board.MemberMapper">
-
+	
+	<!-- 일반유저 --> 
 	<select id="selectOne" resultType="MemberDTO">
 		select * from member where userid=#{userid}
 	</select>
 	
+	<!-- 일반유저 -->
 	<insert id="insert">
-		insert into member(userid,passwd,email,zip,addr1,addr2,filename)
-		values(#{userid},#{passwd},#{email},#{zip},#{addr1},#{addr2},#{filename})
+		insert into member(userid,passwd,email,zip,addr1,addr2,filename,thumbnail)
+		values(#{userid},#{passwd},#{email},#{zip},#{addr1},#{addr2},#{filename},#{thumbnail})
 	</insert>
+	
+	<select id="selectOneNaver" resultType="MemberDTO">
+		select * from member 
+		where userid=#{email} and simplejoin = 1
+	</select>
+	
+	<!-- 네이버간편가입 유저 -->
+	<insert id="insertNaver">
+		insert into member (userid, passwd, email, simplejoin)
+		values (#{email}, '',#{email},1 )
+	</insert>
+	
 	
 	<!-- emailauth를 1로 update -->
 	<update id="emailauthUpdate">

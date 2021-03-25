@@ -53,7 +53,7 @@ public class LoginServiceImpl implements LoginService{
 		//로그인 성공
 		resultMap.put("msg", "로그인 성공");
 		resultMap.put("result", 0);
-		
+		resultMap.put("thumbnail", mdto.getThumbnail());
 		return resultMap;
 	}
 	

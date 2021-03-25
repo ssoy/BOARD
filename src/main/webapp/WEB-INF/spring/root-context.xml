@@ -10,10 +10,10 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- db연결설정 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-		<property name="username" value="hr"/>
-		<property name="password" value="hr"/>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/testdb?useSSL=false&amp;serverTimezone=UTC"/>
+		<property name="username" value="test"/>
+		<property name="password" value="1111"/>
 	</bean>
 
 	<!-- 마이바티스 설정 -->
@@ -31,6 +31,7 @@
 	<!-- String saveDir = "D:/ksy/upload"; -->
 	<bean id="saveDir" class="java.lang.String">
 		<constructor-arg value="D:/codingssoy/upload"/>
+<!-- 		<constructor-arg value="/var/lib/tomcat9/webapps/upload"/> -->
 	</bean>
 	
 	<!-- 암호화 위한 bean생성 -->
@@ -41,10 +42,10 @@
 	
 	<!-- email 인증 관련   -->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="smtp.gmail.com" />
+		<property name="host" value="smtp.gmail.com" />
         <property name="port" value="587" />
         <property name="username" value="codingssoy@gmail.com"/>
-        <property name="password" value="" />
+        <property name="password" value="vlzkth89!!" />
         <property name="javaMailProperties">
             <props>
                 <prop key="mail.transport.protocol">smtp</prop>

@@ -8,22 +8,37 @@
 <title>상세조회</title>
 <!-- 핸들바 탬플릿 cdn추가 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
- <!-- 탬플릿 소스 -->
+ <!-- 탬플릿 소스 :게시판 리스트-->
  <script id="template_source" type="text/x-handlebars-template">
-    {{#each.}}
+    {{#each .}}
+		{{level relevel}}
 		<div>
-			<input type="text" class="restep" value="{{restep}}">
-			<input type="text" class="relevel" value="{{relevel}}">
-			<input type="text" class="rnum" value="{{rnum}}">
+			<input type="hidden" class="restep" value="{{restep}}">
+			<input type="hidden" class="relevel" value="{{relevel}}">
+			<input type="hidden" class="rnum" value="{{rnum}}">
 			<input type="text" class="userid" value="{{userid}}">
 			<br>
 			<textarea rows="3" cols="20" class="content">{{content}}</textarea><br>
 			<button class="btnReplyUpdate">수정</button>
 			<button class="bthReplyDelete">삭제</button>
 			<button class="bthReply">댓글</button>
+			<div class='replyAdd'></div>
 		</div>
+
     {{/each}}
+
 </script>
+
+<!-- 탬플릿 소스 : 댓글 추가 -->
+ <script id="template_source_reply" type="text/x-handlebars-template">
+	<div>
+		<input type="hidden" id="restep" value="{{restep}}">
+		<input type="hidden" id="relevel" value="{{relevel}}"><br>
+		<textarea rows="5" cols="20" id="replycontent"></textarea><br>
+		<button class="btnReplyAdd">추가</button>
+	</div>
+</script>
+
 <script type="text/javascript">
 	$(function() {
 		//좋아요 버튼
@@ -88,12 +103,22 @@
 		/* -------------------댓글처리------------------------- */
 		
 		//댓글추가 버튼을 눌렀을때
-		$('#btnReplyAdd').click(function() {
+		$('body').on('click', '.btnReplyAdd', function() {
+			//userid체크
+			const session_userid = '${sessionScope.userid}';
+			if (session_userid==''){
+				alert('로그인 후 추가하세요');
+				return ;				
+			}			
+			
 			const bnum = $('#bnum').val();
-			const replycontent = $('#replycontent').val(); 
-			const restep = $('#restep').val();
-			const relevel = $('#relevel').val();
-			//alert(restep);
+			const replycontent = $(this).parent().find('#replycontent').val(); 
+			const restep = $(this).parent().find('#restep').val();
+			const relevel = $(this).parent().find('#relevel').val();
+ 			alert(replycontent);
+			alert(restep);
+			alert(relevel);
+			
 			if (replycontent==''){
 				alert('댓글 내용을 입력해주세요');
 				$('#replycontent').focus();
@@ -108,7 +133,11 @@
 				dataType: 'text',
 				success: function(result) {
 					//alert(result);
-					replyList() ; //댓글 리스트 
+					//원본 댓글추가 html삭제
+					$('#replyAdd').html('');
+					//댓글의 댓글 추가 삭제
+					console.log($(this).parent().parent().html());
+					//replyList() ; //댓글 리스트 
 				},
 				error: function(result) {
 					alert('error');
@@ -122,8 +151,13 @@
 		$('#bthReply').on('click',function() {
 			//alert(restep);
 			//alert(relevel);
-			$('#restep').val('0');
-			$('#relevel').val('0');
+						
+			const data = {'restep':0, 'relevel':0}; 
+			
+			//탬플릿을 이용하여 화면에 출력
+			var source = $('#template_source_reply').html();
+            var template = Handlebars.compile(source);
+            $('#replyAdd').html(template(data));				
 			
 		});
 
@@ -133,8 +167,12 @@
 			const relevel = $(this).parent().find('.relevel').val();
 			//alert(restep);
 			//alert(relevel);
-			$('#restep').val(restep);
-			$('#relevel').val(relevel);
+			const data = {restep, relevel}; 
+			
+			//탬플릿을 이용하여 화면에 출력
+			var source = $('#template_source_reply').html();
+            var template = Handlebars.compile(source);
+            $(this).parent().find('.replyAdd').html(template(data));
 			
 		});
 		
@@ -210,6 +248,15 @@
 				success: function(result) {
 					//alert(result);
 					console.log(result);
+					//핸들바 헬퍼 작성
+					Handlebars.registerHelper('level', function(relevel) {
+						var result = '';
+						for(i=0; i<relevel; i++){
+							result += '@';
+						}
+						return result;
+					});
+					
 					//탬플릿을 이용하여 화면에 출력
 					var source = $('#template_source').html();
 		            var template = Handlebars.compile(source);
@@ -222,6 +269,11 @@
 				
 			});
 		}		
+		//목록버튼을 눌럿을때
+		$('#btnList').click(function(e) {
+			e.preventDefault();
+			location.href="${path}/board/";	
+		});
 		
 		replyList() ; //댓글 리스트 
 		
@@ -257,24 +309,14 @@
 	<hr>	
 	<button id="btnModify">수정</button>
 	<button id="bthReply">댓글</button>
+	<button id="btnList">목록</button> 
 	
-	<!-- 댓글 -->
-	<hr>
-	<input type="text" id="restep" value="0">
-	<input type="text" id="relevel" value="0"><br>
-	<textarea rows="5" cols="20" id="replycontent"></textarea><br>
-	<button id="btnReplyAdd">추가</button>
-	<hr>
+	<!-- 댓글 추가 -->
+	<div id="replyAdd"></div>
+	
 	<!-- 댓글의 리스트 -->
 	<div id="replyList"></div>
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 </div>
 </body>

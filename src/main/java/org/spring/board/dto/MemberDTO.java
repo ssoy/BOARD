@@ -13,6 +13,7 @@ public class MemberDTO {
 	private String addr1;
 	private String addr2;
 	private String filename;
+	private String thumbnail; //썸네일이름	
 	private String admin;
 	private String emailauth;
 	private String simplejoin;
@@ -24,7 +25,8 @@ public class MemberDTO {
 	}
 
 	public MemberDTO(String userid, String passwd, String email, String zip, String addr1, String addr2,
-			String filename, String admin, String emailauth, String simplejoin, String regdate) {
+			String filename, String thumbnail, String admin, String emailauth, String simplejoin, String regdate,
+			MultipartFile imgfile) {
 		super();
 		this.userid = userid;
 		this.passwd = passwd;
@@ -33,10 +35,12 @@ public class MemberDTO {
 		this.addr1 = addr1;
 		this.addr2 = addr2;
 		this.filename = filename;
+		this.thumbnail = thumbnail;
 		this.admin = admin;
 		this.emailauth = emailauth;
 		this.simplejoin = simplejoin;
 		this.regdate = regdate;
+		this.imgfile = imgfile;
 	}
 
 	public String getUserid() {
@@ -95,6 +99,14 @@ public class MemberDTO {
 		this.filename = filename;
 	}
 
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
 	public String getAdmin() {
 		return admin;
 	}
@@ -138,8 +150,9 @@ public class MemberDTO {
 	@Override
 	public String toString() {
 		return "MemberDTO [userid=" + userid + ", passwd=" + passwd + ", email=" + email + ", zip=" + zip + ", addr1="
-				+ addr1 + ", addr2=" + addr2 + ", filename=" + filename + ", admin=" + admin + ", emailauth="
-				+ emailauth + ", simplejoin=" + simplejoin + ", regdate=" + regdate + ", imgfile=" + imgfile + "]";
+				+ addr1 + ", addr2=" + addr2 + ", filename=" + filename + ", thumbnail=" + thumbnail + ", admin="
+				+ admin + ", emailauth=" + emailauth + ", simplejoin=" + simplejoin + ", regdate=" + regdate
+				+ ", imgfile=" + imgfile + "]";
 	}
 
 

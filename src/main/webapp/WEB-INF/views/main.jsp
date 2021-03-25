@@ -6,16 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>메인</title>
-
+<script type="text/javascript">
+	//이메일 인증 후 창닫기
+	//alert('${param.auth}');
+	if ('${param.auth}'=='1'){
+		window.close();
+	}
+</script>	
 </head>
 <body>
 <%@include file="menu.jsp" %>
 <div class="container-fluid bg-1 text-center">
-  <h3 class="margin">Who Am I?</h3>
-  <img src="${path}/resources/images/cat.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-  <h3>나의 게시판 메인</h3>
+  <h3 class="margin"></h3>
+  <img src="${path}/resources/images/board.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="450" height="450">
 </div>
 
-<%@include file="footer.jsp" %>
 </body>
 </html>

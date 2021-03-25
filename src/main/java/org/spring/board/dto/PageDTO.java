@@ -10,7 +10,7 @@ public class PageDTO {
 	private int startNo; //시작번호
 	private int endNo; //끝번호
 	
-	private int perBlock=5; //페이지 블럭의 수
+	private int perBlock=10; //페이지 블럭의 수
 	private int startPage; //블럭의 시작페이지
 	private int endPage; //블럭의 끝페이지
 	

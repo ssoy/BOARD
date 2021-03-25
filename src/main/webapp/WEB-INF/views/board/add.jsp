@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시물추가</title>
+
 <script type="text/javascript">
 	$(function() {
 		//파일 추가
@@ -27,11 +28,20 @@
 		//등록버튼을 클릭했을때
 		$('#btnAdd').on('click', function(e) {
 			e.preventDefault();
+			
+			//loginid체크
+			const session_userid = '${sessionScope.userid}';
+			if (session_userid==''){
+				alert('추가권한이 없습니다');
+				return ;				
+			}
+			
 			//유효성체크
 			const subject = frmAdd.subject.value;
 			const content = frmAdd.content.value;
 			if (subject==''){
-				alert('제목을 입력해주세요');
+				//alert('제목을 입력해주세요');
+				$('#msg').html('제목을 입력해주세요!');
 				frmAdd.subject.focus();
 				return;
 			}else if (content==''){
@@ -56,6 +66,7 @@
 </head>
 <body>
 <%@include file="../menu.jsp" %>
+<div class="container">
 	<h2>게시물추가</h2>
 	
 	<form id="frmAdd" name="frmAdd" >
@@ -72,8 +83,10 @@
 				 
 		<button id="btnAdd">등록</button>
 		<input type="reset" value="취소">
-	
 	</form>
+	<div class="text-danger" id="msg"></div>
 	
+	
+</div>	
 </body>
 </html>

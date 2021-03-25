@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spring.board.dto.MemberDTO;
 import org.spring.board.service.MemberService;
+import org.spring.board.service.NaverLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,9 +26,18 @@ public class MemberController {
 	@Autowired
 	private MemberService mservice;
 	
+	@Autowired
+	private NaverLoginService nservice;
+	
 	//가입폼으로
 	@RequestMapping(value = "add", method = RequestMethod.GET)
-	public String add() {
+	public String add(HttpSession session, Model model) throws Exception {
+		//네이버 간편가입 url 얻기
+		Map<String, String> resultMap = nservice.getApiUrl();
+		//클라이언트 인증값 세션에 저장
+		session.setAttribute("state", resultMap.get("state"));
+		model.addAttribute("apiURL", resultMap.get("apiURL") );
+		
 		return "member/add";
 	}
 	
@@ -75,8 +85,10 @@ public class MemberController {
 			logger.info("메일인증성공");
 			//member=>emailauth 수정
 			mservice.emailauthUpdate(map.get("userid"));
+			rattr.addAttribute("auth", 1);
 			rattr.addFlashAttribute("msg", "인증이 완료 되었습니다");
 		}else {
+			rattr.addAttribute("auth", 1);
 			rattr.addFlashAttribute("msg", "인증키가 일치하지 않습니다.");
 		}
 		//redirect는 주소 변경

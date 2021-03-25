@@ -25,6 +25,9 @@ public class BoardServiceImpl implements BoardService{
 	private FileService fservice;
 	
 	@Autowired
+	private ReplyService rservice;
+	
+	@Autowired
 	private BoardFileDAO bfdao;
 	
 	@Autowired
@@ -40,7 +43,8 @@ public class BoardServiceImpl implements BoardService{
 		int perBlock = pdto.getPerBlock();  //페이지 블럭의 수
 		
 		//시작번호
-		int startNo = (curPage-1)*perPage+1;
+		//mysql은 시작번호가 0부터
+		int startNo = (curPage-1)*perPage;
 		//끝번호
 		int endNo = startNo + perPage - 1;
 		
@@ -121,9 +125,11 @@ public class BoardServiceImpl implements BoardService{
 	@Transactional
 	@Override
 	public void delete(int bnum) throws Exception {
-		//1)게시물의 파일들 삭제
+		//1)댓글 삭제
+		rservice.deleteBoard(bnum);
+		//2)게시물의 파일들 삭제
 		fservice.deleteBoard(bnum);
-		//2)게시물삭제
+		//3)게시물삭제
 		bdao.delete(bnum);
 	}
 

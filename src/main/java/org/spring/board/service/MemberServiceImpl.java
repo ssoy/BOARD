@@ -1,5 +1,6 @@
 package org.spring.board.service;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,15 +62,23 @@ public class MemberServiceImpl implements MemberService{
 		}
 		
 		//파일처리 메소드를 결합도는 낮추고 응집도는 높이는 방법
-		//1)파일처리 메소드 호출
-		String filename = fservice.fileUpload(mdto.getImgfile());
-		mdto.setFilename(filename);
-		logger.info(mdto.toString());
+		//1)원본 파일처리 
+		Map<String, Object> fileMap = fservice.fileUpload(mdto.getImgfile());
+		if (fileMap != null) {
+			File file = (File) fileMap.get("file");
+			String filename = (String)fileMap.get("filename");
+
+			//2)썸네일 파일 처리
+			String filename_thumbnail = fservice.fileUpload_thumbnail(file);
+			
+			//3)dto에 setter
+			mdto.setFilename(filename);
+			mdto.setThumbnail(filename_thumbnail);
+			logger.info(mdto.toString());
+		}
 		
 		//2)암호화 처리(평문->암호문)
 		mdto.setPasswd(bcryptEncoder.encode(mdto.getPasswd()));
-		
-		
 		logger.info(mdto.toString());
 		//추가
 		int cnt = mdao.insert(mdto);

@@ -97,11 +97,31 @@
 			goPopup();
 			
 		});
+		
+		//repasswd change이벤트
+		$('#repasswd').change(function() {
+			const passwd = $('#passwd').val();
+			if (passwd != $(this).val()){
+				alert('패스워드가 일치하지 않습니다.');
+			}
+		});
+		//사진이 변경됐을때 사진 보이기 
+		$('#imgfile').change(function() {
+			if(this.files && this.files[0]) {
+			    var reader = new FileReader;
+			    
+			    reader.onload = function(data) {
+			     $("#selectimg img").attr("src", data.target.result).width(100);        
+			    }
+			    reader.readAsDataURL(this.files[0]);
+			}
+		});
 	});
 </script>
 </head>
 <body>
 <%@include file="../menu.jsp" %>
+<div class="container">
 	<h2>회원가입</h2>
 	<form name="frmAdd" action="${path}/member/add" method="post" enctype="multipart/form-data" >
 		<table>
@@ -114,7 +134,9 @@
 			</tr>
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="password" name="passwd"></td>
+				<td><input type="password" name="passwd" id="passwd">
+				<input type="password" id="repasswd"></td>
+
 			</tr>
 			<tr>
 				<th>이메일</th>
@@ -132,17 +154,23 @@
 			</tr>
 			<tr>
 				<th>사진</th>
-				<td><input type="file" name="imgfile"> </td>
+				<td><input type="file" name="imgfile" id="imgfile">
+					<div id ="selectimg"> <img src=""></img></div>
+				
+				 </td>
+				
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
 					<button id="btnAdd">가입</button>
 					<input type="reset" value="취소">
 					<button id="btnMain">메인으로</button>
+					<%-- <a href="${apiURL}"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a> --%>
 				</td>
 			</tr>
 		</table>
 	</form>
+</div>
 <%@include file="../footer.jsp" %>	
 </body>
 </html>
