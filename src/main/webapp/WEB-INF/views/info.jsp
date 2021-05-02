@@ -34,7 +34,7 @@
 <body>
 <%@include file="menu.jsp" %>
 <div class="container">
-	<h2>학원위치</h2>
+	<h2>위치</h2>
 	<div id="map" style="width:100%;height:400px;"></div>
 
 

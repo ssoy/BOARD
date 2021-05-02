@@ -300,7 +300,7 @@
 	</c:forEach>
 	
 	<hr>	
-	조회수 :  ${resultMap.bdto.readcount} 
+	조회수 :  ${resultMap.bdto.readcount} <br><br>
 	<button id="btnLike">좋아요</button><span id="likecnt">${resultMap.bdto.likecnt}</span>
 	<button id="btnDisLike">싫어요</button><span id="dislikecnt">${resultMap.bdto.dislikecnt}</span>
 	<hr>	

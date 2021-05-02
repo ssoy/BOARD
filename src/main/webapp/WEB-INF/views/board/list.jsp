@@ -40,9 +40,6 @@
 		function pageList(curPage) { //현재페이지 매개변수로
 			const findKey = frmList.findKey.value;
 			const findValue = frmList.findValue.value;
-			console.log(findKey);
-			console.log(findValue);
-			console.log(curPage);
 			//alert(curPage);
 			//ajax비동기방식 
 			$.ajax({
@@ -58,7 +55,6 @@
 					var source = $('#template_source').html();
 		            var template = Handlebars.compile(source);
 		            $('#boardList').html(template(result.blist));		
-		            
 		            const pdto = result.pdto; //페이징 정보
 		            //페이징 처리
 		            $('.pagination').html(''); //초기화
@@ -74,15 +70,11 @@
 		            if (pdto.endPage < pdto.totPage){
 		            	$('.pagination').append('<li class="page-item"><a class="page-link aPage" href="'+(pdto.endPage+1)+'">next</a></li>');
 		            }
-
-		            	
 				},
 				error: function(result) {
 					alert('error');
 					console.log(result);
-					
 				}
-				
 			});			
 		}
 		

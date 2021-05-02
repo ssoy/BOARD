@@ -46,13 +46,13 @@ public class MailSendServiceImpl implements MailSendService{
 
         //인증메일 보내기
         MimeMessage mail = mailSender.createMimeMessage();
-        String mailContent = "<h1>[국제자바반 이메일 인증]</h1><br>"+userid +"<p>님 반갑습니다.아래 링크를 클릭해서 이메일인증을 완료해 주세요</p>"
-                            + "<a href='http://localhost:8081/board_mysql/member/signUpConfirm?userid=" 
+        String mailContent = "<h1>김소희 개인포폴 회원가입 이메일 인증</h1><br>"+userid +"<p>님 반갑습니다.아래 링크를 클릭해서 이메일인증을 완료해 주세요</p>"
+                            + "<a href='http://localhost:8081/board/member/signUpConfirm?userid=" 
 //                            + "<a href='http://101.101.208.52:8080/board/member/signUpConfirm?userid=" 
                             + userid + "&authKey=" + authKey + "' target='_blenk'>이메일 인증 확인(여기를 눌러주세요)</a>";
 
         try {
-            mail.setSubject("[국제자바반]회원가입 이메일 인증 ", "utf-8");
+            mail.setSubject("김소희 개인포폴 회원가입 이메일 인증 ", "utf-8");
             mail.setText(mailContent, "utf-8", "html");
             mail.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             mailSender.send(mail);//메일보내기

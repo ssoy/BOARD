@@ -33,4 +33,4 @@ src/main/java/org/spring/board/service/FileServiceImpl.java:20:	VariableNamingCo
 src/main/java/org/spring/board/service/MemberServiceImpl.java:16:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
 src/main/java/org/spring/board/service/MemberServiceImpl.java:16:	VariableNamingConventions:	VariableNamingConventions: Variables that are final and static should be all capitals, 'logger' is not all capitals.
 src/test/java/org/spring/board/TestDAO.java:35:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
-src/test/java/org/spring/board/TestDAO.java:35:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.
+src/test/java/org/spring/board/TestDAO.java:35:	SystemPrintln:	SystemPrintln: System.out.print °¡ »ç¿ëµÊ.  

@@ -39,7 +39,7 @@
 		</dependency>
 		<!-- 마이바티스+spring -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
-		<dependency>
+		<dependency> 
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>2.0.6</version>

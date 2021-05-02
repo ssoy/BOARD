@@ -16,6 +16,7 @@
 			$('#imgThumbnail').show();
 		}
 		
+
 		//메인
 		$('#aHome').on('click', function(e) {
 			$(this).attr('href', '${path}/main');
@@ -76,7 +77,7 @@
       </button>
       <a class="navbar-brand" href="" id="aHome" >메인</a>
       <a class="navbar-brand" href="" id="aBoardList">게시판</a>
-      <a class="navbar-brand" href="" id="aInfo">학원위치</a>
+      <a class="navbar-brand" href="" id="aInfo">위치</a>
       <a class="navbar-brand" href="" id="aChat" >챗봇</a>
     </div>
     
@@ -86,7 +87,7 @@
         <li><a href="${path}/member/add" target="myframe" id="aJoin">회원가입</a></li>
         <li><a href="" id="aLogout">로그아웃</a></li>
         <li><a href="#" id="aMyinfo" target="myframe">${sessionScope.userid}</a></li>
-        <li><img id="imgThumbnail" alt="" src="${path}/localimg/${sessionScope.thumbnail}" width="50" ></li>
+        <li><img id="imgThumbnail" alt="" src="${path}/localimg/${sessionScope.thumbnail}" width="30" ></li>
       </ul>
     </div>
   </div>
@@ -115,9 +116,9 @@
  			<a href=""  class="btn btn-primary" id="btnLogin">로그인</a>
  			<a href="" class="btn btn-success" id="btnLoginCancel">취소</a>
 		</div>      
- 		<%-- <div class="modal-footer">
+ 		<div class="modal-footer">
  			<a href="${apiURL}"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
-		</div>			 --%>
+		</div>			
 
       </div>
     </div>

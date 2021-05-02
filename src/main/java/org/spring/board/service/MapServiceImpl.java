@@ -14,8 +14,8 @@ public class MapServiceImpl implements MapService{
 
 	@Override
 	public Map<String, Double> geocoding(String address) throws Exception{
-		String clientID= "ndys79m540";
-		String clientSecret="mvRYx7cbI60I1z5OcszAsDNA1vyLjH4f5Bj7mNO9";
+		String clientID= "ykw4yzp95q";
+		String clientSecret="DKH8uAM60w6Zis0ZfLyYpoKGD1v7rT6z24lhibHP";
 		String mapurl = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode";		
 		
 		//url생성

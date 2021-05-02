@@ -20,14 +20,14 @@ public class NaverLoginController {
 	private NaverLoginService nservice;
 	
 	//네이버 url생성 폼 호출
-//	@RequestMapping("naverlogin")
-//	public String naverLogin(HttpSession session, Model model) throws Exception {
-//		Map<String, String> resultMap = nservice.getApiUrl();
-//		//클라이언트 인증값 세션에 저장
-//		session.setAttribute("state", resultMap.get("state"));
-//		model.addAttribute("apiURL", resultMap.get("apiURL") );
-//		return "redirect:main";
-//	}
+	@RequestMapping("naverlogin")
+	public String naverLogin(HttpSession session, Model model) throws Exception {
+		Map<String, String> resultMap = nservice.getApiUrl();
+		//클라이언트 인증값 세션에 저장
+		session.setAttribute("state", resultMap.get("state"));
+		model.addAttribute("apiURL", resultMap.get("apiURL") );
+		return "redirect:main";
+	}
 	
 	//네이버 로그인 인증코드 콜백
 	@RequestMapping("callback")
@@ -42,7 +42,6 @@ public class NaverLoginController {
 		
 		return "redirect:/main"; //절대경로
 	}
-	
 	
 	
 }

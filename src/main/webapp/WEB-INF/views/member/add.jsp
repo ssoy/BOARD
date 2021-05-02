@@ -42,7 +42,7 @@
 				success: function(result) {
 					alert(result.msg);
 					//alert(result.yn);
-					if (result.yn=='y'){ //사용가능한 아이디 세팅
+					if (result.yn=='y'){ 
 						$('#idCheckYn').val('y');
 					}else{
 						$('#idCheckYn').val('n');
@@ -53,7 +53,6 @@
 					console.log(result);
 				}
 			});
-			
 		});
 		
 		//가입버튼을 클릭했을때

@@ -24,8 +24,8 @@ public class ChatServiceImpl implements ChatService{
 	     String chatbotMessage = "";
 
         try {
-            String apiURL = "https://b11433dbf1c3440ebf4371541d625d5f.apigw.ntruss.com/custom/v1/4245/ae47288140a9c8552297fe60897523b11b64eff5d48dab235cf641db65ae997e";
-            String secretKey = "aXhHYWZMYlRGUUNKa1l6a09tZGlISEdpVnBuUXJJYUg=";
+            String apiURL = "https://3bc6af4af4e44248a905a5ec74068e6b.apigw.ntruss.com/custom/v1/4272/05865567f91b9c71ac70edaa59ae8004a61f5e94897eb4bbcc61a3ee56f7fb0b";
+            String secretKey = "bnpWSHNvZmFiUnVjeFZkUXF1UGlVSXpDckVsZ2tuamw=";
             URL url = new URL(apiURL);
 
             String message = getReqMessage(voiceMessage);
